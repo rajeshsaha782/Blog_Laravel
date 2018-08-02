@@ -30,19 +30,18 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}">Blogging</a>
+        <a class="navbar-brand" href="Home.html">Blogging</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
 <form method="get" action="{{action('HomeController@search')}}">
-        <div class="input-group" style="width: 40%;">
+        <div class="input-group" style="width: 120%;">
                 <input  type="text" name="searchKey" class="form-control" required placeholder="Search user,title...">
                 <span class="input-group-btn">
                   <button class="btn btn-secondary" type="button">Search</button>
                 </span>
               </div>
-    </form>
+            </form>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
