@@ -24,12 +24,13 @@ class HomeController extends Controller
         ->join('posts', 'users.id', '=', 'posts.post_by')
         ->where('posts.id',$id)->first();
 
-        $comments=DB::table('comments')
-            ->join('users', 'users.id', '=', 'comments.user_id')
+        $comments=DB::table('users')
+            ->join('comments', 'users.id', '=', 'comments.user_id')
             ->where('post_id',$id)
             ->get();
 
-
+$request->session()->put('postid', $id);
+   
 
         return view('home.postdetail')->with('post',$post)->with('comments',$comments);
     }
@@ -49,7 +50,7 @@ class HomeController extends Controller
 
            
 
-        return redirect()->route('home.index');
+        return redirect()->route('home');
     }
 
     public function commentCreate(Request $request)
@@ -70,6 +71,15 @@ class HomeController extends Controller
         return redirect()->route('home.postdetail',$request->post_id);
     }
 
+    public function commentDelete($id,Request $request)
+    {
+
+       DB::table('comments')
+            ->where('id',$id)
+            ->delete();
+
+        return redirect()->route('home.postdetail',session('postid'));
+    }
 
      public function search(Request $request)
     {

@@ -8,6 +8,9 @@
           
           <h1 class="mt-4">{{$post->title}}</h1>
 
+        @if(session('user')->id == $post->post_by)
+                <a  href="{{route('user.postedit',['id' => $post->id])}}">Edit</a>
+          @endif
           <!-- Author -->
           <p class="lead">
             by
@@ -74,13 +77,27 @@
           </div>
           
 
+{{$comments->count()}} Comments 
+ <hr class="my-4">
 
 @foreach($comments as $comment)
           <!-- Single Comment -->
           <div class="media mb-4">
             <img class="d-flex mr-3 rounded-circle" height="50" src="{{asset('user.png')}}" alt="">
             <div class="media-body">
-              <h5 class="mt-0">{{$comment->name}}</h5>
+            <h5 class="mt-0">
+              {{$comment->name}} 
+              <small style="color: gray">{{$comment->comment_date}}
+                @if(session('user')->id == $comment->user_id)
+                   <a style="color: red" href="{{route('home.commentDelete',['id' => $comment->id])}}">Delete</a>
+                 @endif
+              </small>
+
+
+            </h5>
+
+             
+
               {{$comment->comment}}
             </div>
           </div>

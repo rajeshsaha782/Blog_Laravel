@@ -28,6 +28,37 @@
 
           <hr class="my-4">
 
+          @if(session('user')->id == $user->id)
+            <h5 class="card-header">What's On Your Mind?</h5>
+            <div >
+              <form method="post" action="{{action('HomeController@postCreate')}}" class="form-signin">
+             
+
+              <div class="form-label-group">
+                <label for="Title">Title</label>
+                <input type="text" name="Title" value="{{old('Title')}}" class="form-control" placeholder="Title" required>
+               
+              </div>
+              
+              <hr>
+
+              <div class="form-label-group">
+               <label for="Detail">Post Detail</label>
+                <textarea name="Detail" value="{{old('Detail')}}" class="form-control" placeholder="Post detail write here..." required rows="3"></textarea>
+              </div>
+              <br/>
+
+              <button type="submit" class="btn btn-primary">Post</button>
+             
+            </form>
+   
+            </div>
+            <hr class="my-4">
+      @endif
+
+
+
+<h6>Posts</h6>
 <div class="row">
     @foreach($posts as $post)
              
@@ -37,12 +68,19 @@
                <div class="card mb-4">
                 <div class="card-body">
                   <h2 class="card-title">{{$post->title}}</h2>
+
+                   @if(session('user')->id == $user->id)
+                   <a  href="{{route('user.postedit',['id' => $post->id])}}">Edit</a>
+                   @endif
+
                   <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
                   <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}
                   <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
+
+
                 </div>
                    </div>  
                  </div>

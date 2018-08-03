@@ -31,11 +31,11 @@
               <button type="submit" class="btn btn-primary">Post</button>
              
             </form>
-
+   
+            </div>
       @endif
 
-              
-            </div>
+           
          </div>
           <hr class="my-4">
 

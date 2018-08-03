@@ -34,6 +34,42 @@ class UserController extends Controller
         ->with('Totalfollower',$Totalfollower);
     }
 
+    public function postedit($id,Request $request)
+    {
+        $post = DB::table('users')
+                    ->join('posts', 'users.id', '=', 'posts.post_by')
+                    ->where('posts.id',$id)
+                    ->first();
+
+        return view('user.postedit')
+                ->with('post',$post);
+    }
+
+    public function savepostedit($id,Request $request)
+    {
+         $data = [
+            'title' => $request->Title,
+            'detail' => $request->Detail,
+            
+        ];
+
+         DB::table('posts')
+            ->where('id', $id)
+            ->update($data);
+
+        return redirect()->route('user.viewprofile',session('user')->id);
+    }
+
+    public function postdelete($id,Request $request)
+    {
+
+       DB::table('posts')
+            ->where('id',$id)
+            ->delete();
+
+        return redirect()->route('user.viewprofile',session('user')->id);
+    }
+
     public function setfollower($follower,$following,Request $request)
     {
     	$data = [
