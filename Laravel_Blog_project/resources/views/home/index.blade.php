@@ -43,17 +43,24 @@
     @foreach($posts as $post)
              
 
-            <div class="row">  <!-- Blog Post -->
+            <div class="row" style="max-width: 800px">  <!-- Blog Post -->
               <div class="col-md-12">
                <div class="card mb-4">
                 <div class="card-body">
                   <h2 class="card-title">{{$post->title}}</h2>
-                  <p style="text-align:justify;"class="card-text">{{substr($post->detail,0,200)}}</p>
+                  <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
                   <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}
+
+                  @if(session('user'))
                   <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
+                
+                @else
+                  <a href="{{route('login')}}">{{$post->name}}</a>
+                @endif
+                 
                 </div>
                    </div>  
                  </div>

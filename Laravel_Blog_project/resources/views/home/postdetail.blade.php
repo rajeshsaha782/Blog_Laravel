@@ -4,14 +4,21 @@
 
 @section('contents')
 
-	<div class="col-lg-8">
-          <!-- Title -->
+	<div class="col-lg-8" >
+          
           <h1 class="mt-4">{{$post->title}}</h1>
 
           <!-- Author -->
           <p class="lead">
             by
-            <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
+
+            @if(session('user'))
+              <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
+            
+            @else
+              <a href="{{route('login')}}">{{$post->name}}</a>
+            @endif
+            
           </p>
 
           <hr>
@@ -27,12 +34,27 @@
           <hr>
 
           <!-- Post Content -->
-          <p  style="text-align:justify"class="lead">{{$post->detail}}</p>
+      
+          <!-- <p  style="text-align:justify;max-width: 50px"class="lead">{{$post->detail}}</p> -->
 
-          <hr>
+          <!-- <hr> -->
+
+
+          <div class="row" style="max-width: 800px">  <!-- Blog Post -->
+              <div class="col-md-12">
+               <div class="card mb-4">
+                <div class="card-body">
+                 
+                  <p style="text-align:justify"class="card-text">{{$post->detail}}</p>
+                  
+                </div>
+                
+                   </div>  
+                 </div>
+            </div>
 
           <!-- Comments Form -->
-           @if(session('user'))
+           
           <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
@@ -42,17 +64,21 @@
                 <div class="form-group">
                   <textarea name="commentDetail"class="form-control" required rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                @if(session('user'))
+                   <button type="submit" class="btn btn-primary">Submit</button>
+                   @else
+                   <a href="{{route('login')}}" class="btn btn-primary">Submit</a>
+                @endif
               </form>
             </div>
           </div>
-          @endif
+          
 
 
 @foreach($comments as $comment)
           <!-- Single Comment -->
           <div class="media mb-4">
-            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <img class="d-flex mr-3 rounded-circle" height="50" src="{{asset('user.png')}}" alt="">
             <div class="media-body">
               <h5 class="mt-0">{{$comment->name}}</h5>
               {{$comment->comment}}

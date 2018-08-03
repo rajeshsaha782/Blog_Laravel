@@ -11,16 +11,17 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $posts=DB::table('posts')
-            ->join('users', 'users.id', '=', 'posts.post_by')
+        $posts=DB::table('users')
+            ->join('posts', 'posts.post_by', '=', 'users.id')
             ->get();
+            //dd($posts);
 
         return view('home.index')->with('posts',$posts);
     }
 	public function postdetail($id,Request $request)
     {
-        $post= DB::table('posts')
-        ->join('users', 'users.id', '=', 'posts.post_by')
+        $post= DB::table('users')
+        ->join('posts', 'users.id', '=', 'posts.post_by')
         ->where('posts.id',$id)->first();
 
         $comments=DB::table('comments')
@@ -48,7 +49,7 @@ class HomeController extends Controller
 
            
 
-        return view('home.index');
+        return redirect()->route('home.index');
     }
 
     public function commentCreate(Request $request)
@@ -75,12 +76,16 @@ class HomeController extends Controller
         $key='%'.$request->input('key').'%';
         
 
-        $posts= DB::table('posts')
-        ->join('users', 'users.id', '=', 'posts.post_by')
+        $posts= DB::table('users')
+        ->join('posts', 'users.id', '=', 'posts.post_by')
         ->where('title', 'like', $key)
         ->get();
 
-        return view('home.search')->with('posts',$posts);
+        $users= DB::table('users')
+        ->where('name', 'like', $key)
+        ->get();
+
+        return view('home.search')->with('posts',$posts)->with('users',$users);
     } 
     
 

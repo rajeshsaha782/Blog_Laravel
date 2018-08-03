@@ -9,8 +9,8 @@ class UserController extends Controller
 {
     public function viewprofile($id,Request $request)
     {
-        $posts=DB::table('posts')
-            ->join('users', 'users.id', '=', 'posts.post_by')
+        $posts=DB::table('users')
+            ->join('posts', 'users.id', '=', 'posts.post_by')
             ->where('users.id',$id)
             ->get();
 
@@ -23,10 +23,15 @@ class UserController extends Controller
         	->where('following_id',$id)
         	->first();
 
+         $Totalfollower= DB::table('followers')
+        ->where('following_id',$id)
+        ->count();
+
         return view('user.viewprofile')
         ->with('posts',$posts)
         ->with('user',$user)
-        ->with('follow',$follow);
+        ->with('follow',$follow)
+        ->with('Totalfollower',$Totalfollower);
     }
 
     public function setfollower($follower,$following,Request $request)
