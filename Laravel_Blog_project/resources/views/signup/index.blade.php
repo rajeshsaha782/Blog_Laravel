@@ -26,7 +26,7 @@ body {
 
 <div class="col-10  mx-auto">
 	  <div class=" card-register mx-auto mt-5">
-      <div style="color: white" class="card-header"><h3>Sign up</h3></div>
+      <div style="color: white;text-align: left;" class="card-header"><h3>Sign up</h3></div>
       <div class="card-body">
 
           @if($errors->any())
@@ -42,13 +42,13 @@ body {
             <form method="post" class="form-signin">
               <div class="form-label-group">
         <!-- <label for="inputUserame">Name</label> -->
-                <input type="text" name="name" value="{{old('name')}}" id="inputName" class="form-control" placeholder="Name" required autofocus>
+                <input style="opacity: 0.8;" type="text" name="name" value="{{old('name')}}" id="inputName" class="form-control" placeholder="Name" required autofocus>
                 
               </div>
               <hr>
               <div class="form-label-group">
          <!-- <label for="inputEmail">Email address</label> -->
-                <input type="email" name="email" value="{{old('email')}}" id="inputEmail" class="form-control" placeholder="Email address" required>
+                <input  style="opacity: 0.8;" type="email" name="email" value="{{old('email')}}" id="inputEmail" class="form-control" placeholder="Email address" required>
                
               </div>
               
@@ -56,13 +56,13 @@ body {
 
               <div class="form-label-group">
                <!-- <label for="inputPassword">Password</label> -->
-                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                <input  style="opacity: 0.8;" type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
          
               </div>
               <hr>
               <div class="form-label-group">
               <!-- <label for="inputConfirmPassword">Confirm password</label> -->
-                <input type="password" name="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                <input  style="opacity: 0.8;" type="password" name="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
           
               </div><br/>
 

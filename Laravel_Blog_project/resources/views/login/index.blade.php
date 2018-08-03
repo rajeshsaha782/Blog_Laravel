@@ -28,7 +28,7 @@ body {
 
 	  <div class="col-7  mx-auto">
     <div class="  mx-auto mt-5">
-      <div style="color: white" class="card-header">Sign In</div>
+      <div style="color: white; text-align: center;" class="card-header"><h3>Sign In</h3></div>
       <div class="card-body">
             <form method="post"class="form-signin">
               
