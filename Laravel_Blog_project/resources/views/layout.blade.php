@@ -24,7 +24,7 @@
 
   </head>
 @yield('style')
-  <body>
+  <body >
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
@@ -37,7 +37,7 @@
 	<form action="{{action('HomeController@search')}}">
         <div class="input-group" style="width: 120%;">
               
-              <input  type="text" name="key" class="form-control" required placeholder="Search user,title...">
+              <input  type="text" name="key" class="form-control" required placeholder="Search blogger,post...">
                 <span class="input-group-btn">
                   <button type="submit" class="btn btn-secondary" >Search</button>
                 </span>
@@ -102,12 +102,14 @@
     <!-- Footer -->
     <br/>
     <br/>
-    <footer class="py-5 bg-dark">
+   <!--  <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 text-center text-white">Copyright &copy; Blogging 2018</p>
       </div>
-      <!-- /.container -->
-    </footer>
+
+    </footer> --> -->
+
+    @yield('footer')
 
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>

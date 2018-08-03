@@ -11,8 +11,9 @@
  
 
 body {
-  background: gray;
-
+  //background: gray;
+  background-image: url("{{asset('signupWall.png')}}");
+  background-repeat: no-repeat;
   /*background: -webkit-linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);
 
   background: linear-gradient(to right, #0052D4, #65C7F7, #9CECFB);*/
@@ -24,29 +25,29 @@ body {
 
 
 <div class="col-10  mx-auto">
-	  <div class="card card-register mx-auto mt-5">
-      <div class="card-header">Sign up</div>
+	  <div class=" card-register mx-auto mt-5">
+      <div style="color: white" class="card-header"><h3>Sign up</h3></div>
       <div class="card-body">
 
           @if($errors->any())
-          <span style="background-color: red">
+          <div class="card-body"style="background-color: red;opacity: 0.7;">
             <ul>
               @foreach($errors->all() as $err)
-                <li style="color: red">{{$err}}</li>
+                <li style="color: white">{{$err}}</li>
               @endforeach
             </ul>
-          </span>
+          </div>
           @endif
 
             <form method="post" class="form-signin">
               <div class="form-label-group">
-        <label for="inputUserame">Name</label>
+        <!-- <label for="inputUserame">Name</label> -->
                 <input type="text" name="name" value="{{old('name')}}" id="inputName" class="form-control" placeholder="Name" required autofocus>
                 
               </div>
-
+              <hr>
               <div class="form-label-group">
-         <label for="inputEmail">Email address</label>
+         <!-- <label for="inputEmail">Email address</label> -->
                 <input type="email" name="email" value="{{old('email')}}" id="inputEmail" class="form-control" placeholder="Email address" required>
                
               </div>
@@ -54,13 +55,13 @@ body {
               <hr>
 
               <div class="form-label-group">
-               <label for="inputPassword">Password</label>
+               <!-- <label for="inputPassword">Password</label> -->
                 <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
          
               </div>
-              
+              <hr>
               <div class="form-label-group">
-              <label for="inputConfirmPassword">Confirm password</label>
+              <!-- <label for="inputConfirmPassword">Confirm password</label> -->
                 <input type="password" name="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
           
               </div><br/>
