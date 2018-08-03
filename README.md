@@ -1,5 +1,7 @@
 # Blog_Laravel
-###### There will be two types of users in the application; Registered and Unregistered. Registered users are those who have already registered with the application. All the others are unregistered users.
+
+There will be two types of users in the application; Registered and Unregistered. Registered users are those who have already registered with the application. All the others are unregistered users.
+
 Unregistered users will have read only access to the application. They can
 1. View different posts and comments
 2. Search for a specific blogger or a post
