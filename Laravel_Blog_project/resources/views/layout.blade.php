@@ -34,14 +34,16 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-<form method="get" action="{{action('HomeController@search')}}">
+
+	<form action="{{action('HomeController@search')}}">
         <div class="input-group" style="width: 120%;">
-                <input  type="text" name="searchKey" class="form-control" required placeholder="Search user,title...">
+              
+              <input  type="text" name="key" class="form-control" required placeholder="Search user,title...">
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Search</button>
+                  <button type="submit" class="btn btn-secondary" >Search</button>
                 </span>
               </div>
-            </form>
+  </form>
 
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
@@ -50,16 +52,21 @@
                
               </a>
             </li>
+
+            @if(!session('user'))
              <li class="nav-item">
               <a class="nav-link" href="{{route('signup')}}">Sign up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('login')}}">Login</a>
+              <a class="nav-link" href="{{route('login')}}">Signin</a>
             </li>
+            @endif
            
+           @if(session('user'))
             <li class="nav-item">
               <a class="nav-link" href="{{route('logout')}}">Logout</a>
             </li>
+          @endif
           
           </ul>
         </div>

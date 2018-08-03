@@ -23,4 +23,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/postdetail/{id}', 'HomeController@postdetail')->name('home.postdetail');
 Route::post('/home', 'HomeController@postCreate');
 Route::post('/home/commentCreate', 'HomeController@commentCreate');
-Route::get('/home/search/{searchKey}', 'HomeController@search');
+Route::get('/home/search', 'HomeController@search')->name('search');

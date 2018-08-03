@@ -70,16 +70,18 @@ class HomeController extends Controller
     }
 
 
-    public function search($searchKey,Request $request)
+     public function search(Request $request)
     {
-        $s=$searchKey+'%';
+        $key=$request->input('key');
+        
 
-        $post= DB::table('posts')
-        ->where('title', 'like', $s)
+        $posts= DB::table('posts')
+        ->join('users', 'users.id', '=', 'posts.post_by')
+        ->where('title', 'like', $key)
         ->get();
 
-        return view('home.index')->with('posts',$posts);
-    }
+        return view('home.search')->with('posts',$posts);
+    } 
     
 
 	
