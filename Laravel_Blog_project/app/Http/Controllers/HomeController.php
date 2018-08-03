@@ -48,7 +48,7 @@ class HomeController extends Controller
 
            
 
-        return view('home');
+        return view('home.index');
     }
 
     public function commentCreate(Request $request)
@@ -72,7 +72,7 @@ class HomeController extends Controller
 
      public function search(Request $request)
     {
-        $key=$request->input('key');
+        $key='%'.$request->input('key').'%';
         
 
         $posts= DB::table('posts')

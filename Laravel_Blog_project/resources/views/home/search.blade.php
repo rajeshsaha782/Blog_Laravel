@@ -1,8 +1,5 @@
 @extends('layout')
 
-@section('link')
-	    <link href="css/blog-home.css" rel="stylesheet">
-@endsection
 
 @section('contents')
 	<div class="col-md-8">

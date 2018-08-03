@@ -1,8 +1,6 @@
 @extends('layout')
 
-@section('link')
-      <link href="css/blog-home.css" rel="stylesheet">
-@endsection
+
 
 @section('style')
 

@@ -5,38 +5,26 @@
 @section('contents')
 	<div class="col-md-8">
 		
+    <br/>
+
 		<div>
-      <br/>
+     <img class="d-flex rounded-circle" height="100" src="http://placehold.it/50x50" alt="">
+    <h2>{{$user->name}}</h2>
 
-      @if(session('user'))
-            <h5 class="card-header">What's On Your Mind?</h5>
-            <div >
-              <form method="post" class="form-signin">
-             
+    @if($user->id != session('user')->id)
 
-              <div class="form-label-group">
-                <label for="Title">Title</label>
-                <input type="text" name="Title" value="{{old('Title')}}" class="form-control" placeholder="Title" required>
-               
-              </div>
-              
-              <hr>
+        @if(!$follow)
+        <a href="{{route('user.setfollower',['follower' => session('user')->id , 'following' => $user->id])}}" class="btn btn-primary">Follow</a>
+        @endif
 
-              <div class="form-label-group">
-               <label for="Detail">Post Detail</label>
-                <textarea name="Detail" value="{{old('Detail')}}" class="form-control" placeholder="Post detail write here..." required rows="5"></textarea>
-              </div>
-              <br/>
+        @if($follow)
+          <a href="{{route('user.removefollower',['id' => $follow->id])}}" class="btn btn-primary">Following</a>
+        @endif
 
-              <button type="submit" class="btn btn-primary">Post</button>
-             
-            </form>
+    @endif
 
-      @endif
+    </div>
 
-              
-            </div>
-         </div>
           <hr class="my-4">
 
 <div class="row">

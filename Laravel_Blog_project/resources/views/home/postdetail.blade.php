@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('link')
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../../css/blog-post.css" rel="stylesheet">
-@endsection
 
 
 @section('contents')
@@ -15,7 +11,7 @@
           <!-- Author -->
           <p class="lead">
             by
-            <a href="#">{{$post->name}}</a>
+            <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
           </p>
 
           <hr>
