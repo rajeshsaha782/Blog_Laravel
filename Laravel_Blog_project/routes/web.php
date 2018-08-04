@@ -23,12 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home/postdetail/{id}', 'HomeController@postdetail')->name('home.postdetail');
 Route::post('/home', 'HomeController@postCreate');
 Route::post('/home/commentCreate', 'HomeController@commentCreate');
-Route::get('/home/commentDelete/{id}', 'HomeController@commentDelete')->name('home.commentDelete');
+Route::get('/home/commentDelete/{id}', 'HomeController@commentDelete')->name('home.commentDelete')->middleware('CheckSession');
 Route::get('/home/search', 'HomeController@search')->name('search');
 
-Route::get('/user/viewprofile/{id}', 'UserController@viewprofile')->name('user.viewprofile');
-Route::get('/user/postedit/{id}', 'UserController@postedit')->name('user.postedit');
+Route::get('/user/viewprofile/{id}', 'UserController@viewprofile')->name('user.viewprofile')->middleware('CheckSession');
+Route::get('/user/postedit/{id}', 'UserController@postedit')->name('user.postedit')->middleware('CheckSession');
 Route::post('/user/postedit/{id}', 'UserController@savepostedit');
-Route::get('/user/postdelete/{id}', 'UserController@postdelete')->name('user.postdelete');
-Route::get('/user/setfollower/{follower}/{following}', 'UserController@setfollower')->name('user.setfollower');
-Route::get('/user/removefollower/{id}', 'UserController@removefollower')->name('user.removefollower');
+Route::get('/user/postdelete/{id}', 'UserController@postdelete')->name('user.postdelete')->middleware('CheckSession');
+Route::get('/user/setfollower/{follower}/{following}', 'UserController@setfollower')->name('user.setfollower')->middleware('CheckSession');
+Route::get('/user/removefollower/{id}', 'UserController@removefollower')->name('user.removefollower')->middleware('CheckSession');

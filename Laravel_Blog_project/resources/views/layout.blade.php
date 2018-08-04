@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+<link rel="icon" href="{{asset('blog-icon.png')}}" type="image/x-icon" />
     <title>Blogging</title>
 
     <!-- Bootstrap core CSS -->
@@ -29,7 +29,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark  bg-dark fixed-top" >
       <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}">Blogging</a>
+        <a class="navbar-brand" href="{{route('home')}}"> 
+          <img class="rounded-circle" height="30" src="{{asset('blog-icon.png')}}" alt="">logging</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -66,7 +67,7 @@
               <a class="nav-link" href="{{route('signup')}}">Sign up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('login')}}">Signin</a>
+              <a class="nav-link" href="{{route('login')}}">Sign In</a>
             </li>
             @endif
            

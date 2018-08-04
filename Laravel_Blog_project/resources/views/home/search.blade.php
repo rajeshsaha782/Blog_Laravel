@@ -111,7 +111,7 @@
                       <a href="{{route('user.viewprofile',['id' => $user->id])}}">{{$user->name}}</a>
                 
                     @else
-                     <a href="{{route('login')}}">{{$post->name}}</a>
+                     <a href="{{route('login')}}">{{$user->name}}</a>
                      @endif
 
               </h4>

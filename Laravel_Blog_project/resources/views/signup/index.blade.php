@@ -26,7 +26,10 @@ body {
 
 <div class="col-10  mx-auto">
 	  <div class=" card-register mx-auto mt-5">
-      <div style="color: white;text-align: left;" class="card-header"><h3>Sign up</h3></div>
+      <div style="color: white;text-align: center;" class="card-header">
+        <img class="rounded-circle" height="40" src="{{asset('blog-icon.png')}}" alt=""><strong>logging</strong>
+        <h3>Sign up</h3>
+      </div>
       <div class="card-body">
 
           @if($errors->any())
@@ -62,7 +65,7 @@ body {
               <hr>
               <div class="form-label-group">
               <!-- <label for="inputConfirmPassword">Confirm password</label> -->
-                <input  style="opacity: 0.8;" type="password" name="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
+                <input  style="opacity: 0.8;" type="password" name="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" required>
           
               </div><br/>
 

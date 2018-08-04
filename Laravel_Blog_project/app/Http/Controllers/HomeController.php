@@ -29,7 +29,7 @@ class HomeController extends Controller
             ->where('post_id',$id)
             ->get();
 
-$request->session()->put('postid', $id);
+        $request->session()->put('postid', $id);
    
 
         return view('home.postdetail')->with('post',$post)->with('comments',$comments);

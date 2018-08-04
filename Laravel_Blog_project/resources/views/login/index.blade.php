@@ -28,7 +28,10 @@ body {
 
 	  <div class="col-7  mx-auto">
     <div class="  mx-auto mt-5">
-      <div style="color: white; text-align: center;" class="card-header"><h3>Sign In</h3></div>
+      <div style="color: white; text-align: center;" class="card-header">
+         <img class="rounded-circle" height="40" src="{{asset('blog-icon.png')}}" alt=""><strong>logging</strong>
+         <h3>Sign in</h3>
+       </div>
       <div class="card-body">
             <form method="post"class="form-signin">
               
@@ -50,7 +53,7 @@ body {
              <br/>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Signin</button>
-              <a style="color: white"class="d-block text-left mt-2 small"  href="{{route('signup')}}">Not yet a Member? Sign Up</a>
+              <a style="color: white"class="d-block text-left mt-2 small"  href="{{route('signup')}}">Not yet a Member? Sign Up Now!</a>
               <hr class="my-4">
               
             </form>
