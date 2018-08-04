@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         $posts=DB::table('users')
             ->join('posts', 'posts.post_by', '=', 'users.id')
+            ->orderBy('posted_date','DESC')
             ->get();
             //dd($posts);
 
@@ -88,11 +89,11 @@ class HomeController extends Controller
 
         $posts= DB::table('users')
         ->join('posts', 'users.id', '=', 'posts.post_by')
-        ->where('title', 'like', $key)
+        ->whereRaw("lower(title) like lower('$key')")
         ->get();
 
         $users= DB::table('users')
-        ->where('name', 'like', $key)
+        ->whereRaw("lower(name) like lower('$key')")
         ->get();
 
         return view('home.search')->with('posts',$posts)->with('users',$users);

@@ -67,7 +67,7 @@
               <a class="nav-link" href="{{route('signup')}}">Sign up</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('login')}}">Sign In</a>
+              <a class="nav-link" href="{{route('login')}}">Sign in</a>
             </li>
             @endif
            
@@ -108,7 +108,7 @@
         <p class="m-0 text-center text-white">Copyright &copy; Blogging 2018</p>
       </div>
 
-    </footer> --> -->
+    </footer> -->
 
     @yield('footer')
 
