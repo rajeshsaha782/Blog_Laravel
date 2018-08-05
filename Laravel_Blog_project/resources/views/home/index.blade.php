@@ -49,16 +49,18 @@
                 <div class="card-body">
                   <h2 class="card-title">{{$post->title}}</h2>
                   <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
-                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-primary">Read More &rarr;</a>
+                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-outline-info">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}
 
+                  By
                   @if(session('user'))
+
                   <a href="{{route('user.viewprofile',['id' => $post->post_by])}}">{{$post->name}}</a>
                 
                 @else
-                  <a href="{{route('login')}}">{{$post->name}}</a>
+                  <a href="{{route('login')}}"> {{$post->name}}</a>
                 @endif
                  
                 </div>

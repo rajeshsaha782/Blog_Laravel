@@ -7,8 +7,9 @@
 		
     <br/>
 
-		<div>
-     <img class="d-flex rounded-circle" height="100" src="{{asset('user.png')}}" alt="">
+		<div class="container-fluid" style="text-align: center;">
+
+     <img style="margin-left: auto; margin-right: auto;"  class="d-flex rounded-circle" height="100" src="{{asset('user.png')}}" alt="">
     <h2>{{$user->name}}</h2>
 
     <h6>Followed By {{$Totalfollower}} People </h6>
@@ -74,7 +75,7 @@
                    @endif
 
                   <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
-                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-primary">Read More &rarr;</a>
+                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-outline-info">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}

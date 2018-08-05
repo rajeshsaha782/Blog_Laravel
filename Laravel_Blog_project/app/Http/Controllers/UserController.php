@@ -57,7 +57,7 @@ class UserController extends Controller
             ->where('id', $id)
             ->update($data);
 
-        return redirect()->route('user.viewprofile',session('user')->id);
+        return redirect()->route('home.postdetail',$id);
     }
 
     public function postdelete($id,Request $request)

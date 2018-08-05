@@ -70,7 +70,7 @@ body {
               </div><br/>
 
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Signup</button>
-              <a class="d-block text-center mt-2 small" href="Signin.html">Sign In</a>
+              <a class="d-block text-center mt-2 small" href="{{route('login')}}">Sign In</a>
               <hr class="my-4">
               
             </form>

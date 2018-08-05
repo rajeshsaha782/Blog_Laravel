@@ -56,7 +56,7 @@
                 <div class="card-body">
                   <h2 class="card-title">{{$post->title}}</h2>
                   <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
-                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-primary">Detail &rarr;</a>
+                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-outline-info">Detail &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}
