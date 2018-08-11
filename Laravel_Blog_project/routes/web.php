@@ -10,7 +10,8 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'LoginController@index');
+Route::get('/', 'HomeController@index');
+
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login', 'LoginController@verify');
 
@@ -21,15 +22,19 @@ Route::post('/signup', 'SignupController@verify');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home/postdetail/{id}', 'HomeController@postdetail')->name('home.postdetail');
-Route::post('/home', 'HomeController@postCreate');
-Route::post('/home/commentCreate', 'HomeController@commentCreate');
-Route::get('/home/commentDelete/{id}', 'HomeController@commentDelete')->name('home.commentDelete')->middleware('CheckSession');
 Route::get('/home/search', 'HomeController@search')->name('search');
 
+
 Route::get('/user/viewprofile/{id}', 'UserController@viewprofile')->name('user.viewprofile')->middleware('CheckSession');
-Route::get('/user/postedit/{id}', 'UserController@postedit')->name('user.postedit')->middleware('CheckSession');
-Route::post('/user/postedit/{id}', 'UserController@savepostedit');
-Route::get('/user/postdelete/{id}', 'UserController@postdelete')->name('user.postdelete')->middleware('CheckSession');
 Route::get('/user/setfollower/{follower}/{following}', 'UserController@setfollower')->name('user.setfollower')->middleware('CheckSession');
 Route::get('/user/removefollower/{id}', 'UserController@removefollower')->name('user.removefollower')->middleware('CheckSession');
+
+
+Route::post('/post/postcreate', 'PostController@postCreate');
+Route::get('/post/postdetail/{id}', 'PostController@postdetail')->name('post.postdetail');
+Route::get('/post/postedit/{id}', 'PostController@postedit')->name('post.postedit')->middleware('CheckSession');
+Route::post('/post/postedit/{id}', 'PostController@savepostedit');
+Route::get('/post/postdelete/{id}', 'PostController@postdelete')->name('post.postdelete')->middleware('CheckSession');
+
+Route::post('/comment/commentCreate', 'CommentController@commentCreate');
+Route::get('/comment/commentDelete/{id}', 'CommentController@commentDelete')->name('comment.commentDelete')->middleware('CheckSession');

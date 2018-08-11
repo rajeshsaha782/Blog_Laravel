@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\DB;
@@ -15,15 +16,30 @@ class SignupController extends Controller
 
     public function verify(SignupRequest $request)
     {
-    	 $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => $request->password
-        ];
 
-        DB::table('users')
-            ->insert($data);
+        ///-----------using query builder.....
 
+    	 // $data = [
+      //       'name' => $request->name,
+      //       'email' => $request->email,
+      //       'password' => $request->password
+      //   ];
+
+      //   DB::table('users')
+      //       ->insert($data);
+
+      ///---------------end query builder
+
+        ///----------------using model.....
+            User::create();
+
+            $user=new User();
+            $user->name=$request->name;
+            $user->email=$request->email;
+            $user->password=$request->password;
+            $user->save();
+
+        ///------------------end model
         return redirect()->route('login');
     }
 }

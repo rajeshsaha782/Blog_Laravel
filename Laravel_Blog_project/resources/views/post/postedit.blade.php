@@ -48,7 +48,7 @@
                  </div>
             </div>
  			<button type="submit" class="btn btn-success">Save Changes</button>
- 			<a href="{{route('user.postdelete',['id' => $post->id])}}" class="btn btn-danger">Delete Post</a>
+ 			<a href="{{route('post.postdelete',['id' => $post->id])}}" class="btn btn-danger">Delete Post</a>
  			<a href="{{route('user.viewprofile',['id' => $post->post_by])}}" class="btn btn-warning">Cancel</a>
         </form>
 

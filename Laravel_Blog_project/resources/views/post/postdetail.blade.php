@@ -9,7 +9,7 @@
           <h1 class="mt-4">{{$post->title}}</h1>
 
           @if(session('user') && session('user')->id == $post->post_by)
-                <a  href="{{route('user.postedit',['id' => $post->id])}}">Edit</a>
+                <a  href="{{route('post.postedit',['id' => $post->id])}}">Edit</a>
           @endif
           <!-- Author -->
           <p class="lead">
@@ -61,7 +61,7 @@
           <div class="card my-4">
             <h5 class="card-header">Leave a Comment:</h5>
             <div class="card-body">
-              <form method="post" action="{{action('HomeController@commentCreate')}}">
+              <form method="post" action="{{action('CommentController@commentCreate')}}">
                 <input type="hidden" name="post_id" value="{{$post->id}}"/>
 
                 <div class="form-group">
@@ -89,7 +89,7 @@
               {{$comment->name}} 
               <small style="color: gray">{{$comment->comment_date}}
                 @if(session('user') && session('user')->id == $comment->user_id)
-                   <a style="color: red" href="{{route('home.commentDelete',['id' => $comment->id])}}">Delete</a>
+                   <a style="color: red" href="{{route('comment.commentDelete',['id' => $comment->id])}}">Delete</a>
                  @endif
               </small>
 

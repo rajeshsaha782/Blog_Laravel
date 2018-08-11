@@ -32,7 +32,7 @@
           @if(session('user')->id == $user->id)
             <h5 class="card-header">What's On Your Mind?</h5>
             <div >
-              <form method="post" action="{{action('HomeController@postCreate')}}" class="form-signin">
+              <form method="post" action="{{action('PostController@postCreate')}}" class="form-signin">
              
 
               <div class="form-label-group">
@@ -71,11 +71,11 @@
                   <h2 class="card-title">{{$post->title}}</h2>
 
                    @if(session('user')->id == $user->id)
-                   <a  href="{{route('user.postedit',['id' => $post->id])}}">Edit</a>
+                   <a  href="{{route('post.postedit',['id' => $post->id])}}">Edit</a>
                    @endif
 
                   <p style="text-align:justify;min-width: 700px"class="card-text">{{substr($post->detail,0,200)}}</p>
-                  <a href="{{route('home.postdetail',['id' => $post->id])}}" class="btn btn-outline-info">Read More &rarr;</a>
+                  <a href="{{route('post.postdetail',['id' => $post->id])}}" class="btn btn-outline-info">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
                   {{$post->posted_date}}
