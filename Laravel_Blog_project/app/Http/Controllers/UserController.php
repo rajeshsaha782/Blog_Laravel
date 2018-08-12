@@ -20,7 +20,7 @@ class UserController extends Controller
         	->where('id',$id)
         	->first();
 
-        $follow= DB::table('followers')
+        $isfollow= DB::table('followers')
         	->where('follower_id',session('user')->id)
         	->where('following_id',$id)
         	->first();
@@ -31,11 +31,28 @@ class UserController extends Controller
 
          $Totalfollower= Follower::where('following_id',$id)->count();
 
+
+         // $allfollowers= Follower::where('following_id',$id)->get();
+         // $allfollowings= Follower::where('follower_id',$id)->get();
+
+         $allfollowers= DB::table('users')
+                        ->join('followers', 'users.id', '=', 'followers.follower_id')
+                        ->where('following_id',$id)
+                        ->get();
+                        
+        $allfollowings= DB::table('users')
+                        ->join('followers', 'users.id', '=', 'followers.following_id')
+                        ->where('follower_id',$id)
+                        ->get();
+
+         //dd($allfollowings);
         return view('user.viewprofile')
         ->with('posts',$posts)
         ->with('user',$user)
-        ->with('follow',$follow)
-        ->with('Totalfollower',$Totalfollower);
+        ->with('isfollow',$isfollow)
+        ->with('Totalfollower',$Totalfollower)
+        ->with('allfollowers',$allfollowers)
+        ->with('allfollowings',$allfollowings);
     }
 
    
