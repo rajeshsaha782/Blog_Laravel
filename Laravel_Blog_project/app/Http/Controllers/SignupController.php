@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SignupRequest;
 use Illuminate\Support\Facades\DB;
 
+use Mail;
+use App\Mail\ThanksMail;
+
 class SignupController extends Controller
 {
     public function index()
@@ -31,13 +34,16 @@ class SignupController extends Controller
       ///---------------end query builder
 
         ///----------------using model.....
-            User::create();
+            //User::create();
 
             $user=new User();
             $user->name=$request->name;
             $user->email=$request->email;
             $user->password=$request->password;
             $user->save();
+
+            Mail::to($user->email)->send(new ThanksMail($user));
+
 
         ///------------------end model
         return redirect()->route('login');

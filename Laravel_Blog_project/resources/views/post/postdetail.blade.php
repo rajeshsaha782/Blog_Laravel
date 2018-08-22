@@ -48,8 +48,8 @@
                <div class="card mb-4">
                 <div class="card-body">
                  
-                  <p style="text-align:justify"class="card-text">{{$post->detail}}</p>
-                  
+                  <p style="text-align:justify;"class="card-text">{{$post->detail}}</p>
+                  <!-- <pre style="text-align:justify;display: block;"class="card-text">{{$post->detail}}</pre> -->
                 </div>
                 
                    </div>  

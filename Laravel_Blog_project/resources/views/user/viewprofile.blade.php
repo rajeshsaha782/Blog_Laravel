@@ -107,7 +107,7 @@
 
                                         <div class="form-label-group">
                                          <label for="Detail">Post Detail</label>
-                                          <textarea name="Detail" value="{{old('Detail')}}" class="form-control" placeholder="Post detail write here..." required rows="3"></textarea>
+                                          <textarea name="Detail" value="{{old('Detail')}}" class="form-control" placeholder="Post detail write here..." required rows="5"></textarea>
                                         </div>
                                         <br/>
 

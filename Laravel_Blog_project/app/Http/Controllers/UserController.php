@@ -35,7 +35,7 @@ class UserController extends Controller
          // $allfollowers= Follower::where('following_id',$id)->get();
          // $allfollowings= Follower::where('follower_id',$id)->get();
 
-         $allfollowers= DB::table('users')
+        $allfollowers= DB::table('users')
                         ->join('followers', 'users.id', '=', 'followers.follower_id')
                         ->where('following_id',$id)
                         ->get();

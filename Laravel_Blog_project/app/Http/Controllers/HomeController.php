@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -17,6 +17,9 @@ class HomeController extends Controller
             ->orderBy('posted_date','DESC')
             ->get();
             //dd($posts);
+
+            //dd(Post::all());
+       // $posts=Post::all()->user->get();
 
         return view('home.index')->with('posts',$posts);
     }
